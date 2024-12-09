@@ -115,5 +115,19 @@ class TaiKhoan
             echo "Lỗi: " . $e->getMessage();
         }
     }
+
+    //login admin
+    public function loginAdmin($username,$password)
+    {
+        try {
+            $sql = 'SELECT * FROM tai_khoans WHERE id = :id';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':id' => $id]);
+
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
+        }
+    }
 }
 ?>

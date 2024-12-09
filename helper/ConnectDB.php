@@ -19,6 +19,6 @@ class ConnectDB
 
 	public static function notInjection($val): string
 	{
-		return DB::makeConnection()->real_escape_string(trim($val));
+		return self::$self->real_escape_string(trim($val));
 	}
 }
